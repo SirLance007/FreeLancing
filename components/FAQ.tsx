@@ -252,57 +252,58 @@ We take your privacy and security as seriously as banks do.`,
   }
 
   return (
-    <section id="faq" className="section-padding bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 relative overflow-hidden">
+    <section id="faq" className="section-padding bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 relative overflow-hidden px-4 sm:px-6 lg:px-8">
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-green-400/20 to-blue-400/20 rounded-full blur-3xl animate-float"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-purple-400/20 to-pink-400/20 rounded-full blur-3xl animate-float-delayed"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-br from-yellow-400/10 to-orange-400/10 rounded-full blur-3xl animate-float-more-delayed"></div>
+        <div className="absolute -top-40 -right-40 w-60 h-60 sm:w-80 sm:h-80 bg-gradient-to-br from-green-400/20 to-blue-400/20 rounded-full blur-3xl animate-float"></div>
+        <div className="absolute -bottom-40 -left-40 w-60 h-60 sm:w-80 sm:h-80 bg-gradient-to-br from-purple-400/20 to-pink-400/20 rounded-full blur-3xl animate-float-delayed"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-72 h-72 sm:w-96 sm:h-96 bg-gradient-to-br from-yellow-400/10 to-orange-400/10 rounded-full blur-3xl animate-float-more-delayed"></div>
       </div>
 
       <div className="container-custom relative z-10">
         {/* Header */}
-        <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+        <div className={`text-center mb-12 sm:mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-3 sm:mb-4">
             Frequently Asked
             <span className="text-gradient ml-2">Questions</span>
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             Find answers to common questions about tax filing, verification, and our services
           </p>
         </div>
 
         {/* Search and Categories */}
-        <div className={`max-w-4xl mx-auto mb-12 transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        <div className={`max-w-4xl mx-auto mb-8 sm:mb-12 transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           {/* Search Bar */}
-          <div className="relative mb-8">
-            <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+          <div className="relative mb-6 sm:mb-8">
+            <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 w-4 h-4 sm:w-5 sm:h-5 text-gray-400" />
             <input
               type="text"
               placeholder="Search questions..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-12 pr-4 py-4 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
+              className="w-full pl-10 sm:pl-12 pr-4 py-3 sm:py-4 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 text-sm sm:text-base"
             />
           </div>
 
           {/* Category Tabs */}
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-4">
             {categories.map((category, index) => {
               const IconComponent = category.icon
               return (
                 <button
                   key={category.id}
                   onClick={() => setSelectedCategory(category.id)}
-                  className={`flex items-center gap-2 px-6 py-3 rounded-xl font-medium transition-all duration-200 ${
+                  className={`flex items-center gap-1 sm:gap-2 px-3 sm:px-6 py-2 sm:py-3 rounded-xl font-medium transition-all duration-200 text-xs sm:text-sm ${
                     selectedCategory === category.id
                       ? 'bg-blue-500 text-white shadow-lg'
                       : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-700'
                   }`}
                 >
-                  <IconComponent className="w-4 h-4" />
-                  {category.name}
-                  <span className="ml-1 text-sm opacity-75">({category.count})</span>
+                  <IconComponent className="w-3 h-3 sm:w-4 sm:h-4" />
+                  <span className="hidden sm:inline">{category.name}</span>
+                  <span className="sm:hidden">{category.name.split(' ')[0]}</span>
+                  <span className="ml-1 text-xs opacity-75">({category.count})</span>
                 </button>
               )
             })}
@@ -310,7 +311,7 @@ We take your privacy and security as seriously as banks do.`,
         </div>
 
         {/* FAQ Items */}
-        <div className={`max-w-4xl mx-auto space-y-4 transition-all duration-1000 delay-400 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        <div className={`max-w-4xl mx-auto space-y-3 sm:space-y-4 transition-all duration-1000 delay-400 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           {filteredFaqs.map((faq, index) => (
             <div 
               key={index} 
@@ -321,24 +322,24 @@ We take your privacy and security as seriously as banks do.`,
             >
               <button
                 onClick={() => toggleFAQ(index)}
-                className="w-full p-6 text-left flex items-center justify-between hover:bg-white/50 dark:hover:bg-gray-800/50 transition-all duration-200 group"
+                className="w-full p-4 sm:p-6 text-left flex items-center justify-between hover:bg-white/50 dark:hover:bg-gray-800/50 transition-all duration-200 group"
               >
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white pr-4 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-200">
+                <h3 className="text-sm sm:text-lg font-semibold text-gray-900 dark:text-white pr-4 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-200">
                   {faq.question}
                 </h3>
                 <div className="flex-shrink-0">
                   {openIndex === index ? (
-                    <ChevronUp className="w-5 h-5 text-blue-500 transition-transform duration-200" />
+                    <ChevronUp className="w-4 h-4 sm:w-5 sm:h-5 text-blue-500 transition-transform duration-200" />
                   ) : (
-                    <ChevronDown className="w-5 h-5 text-gray-400 group-hover:text-blue-500 transition-all duration-200" />
+                    <ChevronDown className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 group-hover:text-blue-500 transition-all duration-200" />
                   )}
                 </div>
               </button>
               
               {openIndex === index && (
-                <div className="px-6 pb-6 border-t border-gray-200 dark:border-gray-700">
-                  <div className="pt-4 text-gray-700 dark:text-gray-300 leading-relaxed prose prose-gray dark:prose-invert max-w-none">
-                    <div className="whitespace-pre-line">{faq.answer}</div>
+                <div className="px-4 sm:px-6 pb-4 sm:pb-6 border-t border-gray-200 dark:border-gray-700">
+                  <div className="pt-3 sm:pt-4 text-gray-700 dark:text-gray-300 leading-relaxed prose prose-gray dark:prose-invert max-w-none">
+                    <div className="whitespace-pre-line text-sm sm:text-base">{faq.answer}</div>
                   </div>
                 </div>
               )}
@@ -347,12 +348,12 @@ We take your privacy and security as seriously as banks do.`,
 
           {/* No results message */}
           {filteredFaqs.length === 0 && (
-            <div className="text-center py-12">
-              <HelpCircle className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+            <div className="text-center py-8 sm:py-12">
+              <HelpCircle className="w-12 h-12 sm:w-16 sm:h-16 text-gray-400 mx-auto mb-3 sm:mb-4" />
+              <h3 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white mb-2">
                 No questions found
               </h3>
-              <p className="text-gray-600 dark:text-gray-400">
+              <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400">
                 Try adjusting your search terms or category filter
               </p>
             </div>
@@ -360,19 +361,19 @@ We take your privacy and security as seriously as banks do.`,
         </div>
 
         {/* Bottom CTA */}
-        <div className={`text-center mt-16 transition-all duration-1000 delay-600 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <div className="glass-effect rounded-2xl p-8 max-w-2xl mx-auto">
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+        <div className={`text-center mt-12 sm:mt-16 transition-all duration-1000 delay-600 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <div className="glass-effect rounded-2xl p-6 sm:p-8 max-w-2xl mx-auto">
+            <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-3 sm:mb-4">
               Still have questions?
             </h3>
-            <p className="text-gray-600 dark:text-gray-300 mb-6">
+            <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 mb-4 sm:mb-6">
               Our tax experts are here to help you with any specific questions or concerns.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="btn-primary">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+              <button className="btn-primary text-sm sm:text-base">
                 Contact Support
               </button>
-              <button className="btn-outline">
+              <button className="btn-outline text-sm sm:text-base">
                 Live Chat
               </button>
             </div>

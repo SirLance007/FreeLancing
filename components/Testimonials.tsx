@@ -85,27 +85,27 @@ const Testimonials = () => {
   }
 
   return (
-    <section id="testimonials" className="section-padding bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 relative overflow-hidden">
+    <section id="testimonials" className="section-padding bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 relative overflow-hidden px-4 sm:px-6 lg:px-8">
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-yellow-400/20 to-orange-400/20 rounded-full blur-3xl animate-float"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-green-400/20 to-blue-400/20 rounded-full blur-3xl animate-float-delayed"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-br from-purple-400/10 to-pink-400/10 rounded-full blur-3xl animate-float-more-delayed"></div>
+        <div className="absolute -top-40 -right-40 w-60 h-60 sm:w-80 sm:h-80 bg-gradient-to-br from-yellow-400/20 to-orange-400/20 rounded-full blur-3xl animate-float"></div>
+        <div className="absolute -bottom-40 -left-40 w-60 h-60 sm:w-80 sm:h-80 bg-gradient-to-br from-green-400/20 to-blue-400/20 rounded-full blur-3xl animate-float-delayed"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-72 h-72 sm:w-96 sm:h-96 bg-gradient-to-br from-purple-400/10 to-pink-400/10 rounded-full blur-3xl animate-float-more-delayed"></div>
       </div>
 
       <div className="container-custom relative z-10">
         {/* Header */}
-        <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+        <div className={`text-center mb-12 sm:mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-3 sm:mb-4">
             What Our
             <span className="text-gradient ml-2">Customers Say</span>
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-8">
+          <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-6 sm:mb-8">
             Join thousands of satisfied customers who trust myITreturn for their tax filing needs
           </p>
 
           {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-8 max-w-4xl mx-auto">
             {[
               { label: 'Average Rating', value: `${stats.rating}`, icon: Star },
               { label: 'Happy Customers', value: `${stats.reviews.toLocaleString()}+`, icon: CheckCircle },
@@ -119,10 +119,10 @@ const Testimonials = () => {
                   className={`text-center transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
                   style={{ transitionDelay: `${index * 100}ms` }}
                 >
-                  <div className="glass-effect rounded-2xl p-6">
-                    <IconComponent className="w-8 h-8 text-blue-500 mx-auto mb-3" />
-                    <div className="text-2xl font-bold text-gray-900 dark:text-white mb-1">{stat.value}</div>
-                    <div className="text-sm text-gray-600 dark:text-gray-400">{stat.label}</div>
+                  <div className="glass-effect rounded-2xl p-4 sm:p-6">
+                    <IconComponent className="w-6 h-6 sm:w-8 sm:h-8 text-blue-500 mx-auto mb-2 sm:mb-3" />
+                    <div className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 dark:text-white mb-1">{stat.value}</div>
+                    <div className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">{stat.label}</div>
                   </div>
                 </div>
               )
@@ -134,44 +134,44 @@ const Testimonials = () => {
         <div className={`max-w-4xl mx-auto transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div className="relative">
             {/* Main Testimonial Card */}
-            <div className="glass-effect rounded-3xl p-8 md:p-12 relative overflow-hidden">
+            <div className="glass-effect rounded-3xl p-6 sm:p-8 md:p-12 relative overflow-hidden">
               {/* Quote Icon */}
-              <Quote className="absolute top-6 right-6 w-12 h-12 text-blue-500/20 dark:text-blue-400/20" />
+              <Quote className="absolute top-4 right-4 sm:top-6 sm:right-6 w-8 h-8 sm:w-12 sm:h-12 text-blue-500/20 dark:text-blue-400/20" />
               
               {/* Testimonial Content */}
-              <div className="text-center mb-8">
-                <div className="flex justify-center mb-6">
+              <div className="text-center mb-6 sm:mb-8">
+                <div className="flex justify-center mb-4 sm:mb-6">
                   {[...Array(5)].map((_, i) => (
                     <Star 
                       key={i} 
-                      className={`w-6 h-6 ${i < testimonials[currentTestimonial].rating ? 'text-yellow-400 fill-current' : 'text-gray-300 dark:text-gray-600'}`} 
+                      className={`w-5 h-5 sm:w-6 sm:h-6 ${i < testimonials[currentTestimonial].rating ? 'text-yellow-400 fill-current' : 'text-gray-300 dark:text-gray-600'}`} 
                     />
                   ))}
                 </div>
                 
-                <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 leading-relaxed italic mb-8">
+                <p className="text-base sm:text-lg md:text-xl text-gray-700 dark:text-gray-300 leading-relaxed italic mb-6 sm:mb-8">
                   "{testimonials[currentTestimonial].text}"
                 </p>
 
                 {/* Author Info */}
-                <div className="flex items-center justify-center space-x-4">
+                <div className="flex flex-col sm:flex-row items-center justify-center space-y-3 sm:space-y-0 sm:space-x-4">
                   <div className="relative">
                     <img 
                       src={testimonials[currentTestimonial].avatar} 
                       alt={testimonials[currentTestimonial].name}
-                      className="w-16 h-16 rounded-full object-cover border-4 border-white dark:border-gray-700 shadow-lg"
+                      className="w-12 h-12 sm:w-16 sm:h-16 rounded-full object-cover border-4 border-white dark:border-gray-700 shadow-lg"
                     />
                     {testimonials[currentTestimonial].verified && (
                       <div className="absolute -bottom-1 -right-1 bg-green-500 rounded-full p-1">
-                        <CheckCircle className="w-4 h-4 text-white" />
+                        <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
                       </div>
                     )}
                   </div>
-                  <div className="text-left">
-                    <div className="font-semibold text-gray-900 dark:text-white">
+                  <div className="text-center sm:text-left">
+                    <div className="font-semibold text-gray-900 dark:text-white text-sm sm:text-base">
                       {testimonials[currentTestimonial].name}
                     </div>
-                    <div className="text-sm text-gray-600 dark:text-gray-400">
+                    <div className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">
                       {testimonials[currentTestimonial].city}
                     </div>
                   </div>
@@ -184,7 +184,7 @@ const Testimonials = () => {
                   <button
                     key={index}
                     onClick={() => setCurrentTestimonial(index)}
-                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                    className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${
                       index === currentTestimonial 
                         ? 'bg-blue-500 scale-125' 
                         : 'bg-gray-300 dark:bg-gray-600 hover:bg-gray-400 dark:hover:bg-gray-500'
@@ -197,30 +197,30 @@ const Testimonials = () => {
             {/* Navigation Arrows */}
             <button
               onClick={prevTestimonial}
-              className="absolute left-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white dark:bg-gray-800 rounded-full shadow-lg hover:shadow-xl transition-all duration-200 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400"
+              className="absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 bg-white dark:bg-gray-800 rounded-full shadow-lg hover:shadow-xl transition-all duration-200 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400"
             >
-              <ArrowLeft className="w-5 h-5" />
+              <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
             
             <button
               onClick={nextTestimonial}
-              className="absolute right-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white dark:bg-gray-800 rounded-full shadow-lg hover:shadow-xl transition-all duration-200 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400"
+              className="absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 bg-white dark:bg-gray-800 rounded-full shadow-lg hover:shadow-xl transition-all duration-200 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400"
             >
-              <ArrowRight className="w-5 h-5" />
+              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
           </div>
         </div>
 
         {/* Bottom CTA */}
-        <div className={`text-center mt-16 transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <div className="glass-effect rounded-2xl p-8 max-w-2xl mx-auto">
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+        <div className={`text-center mt-12 sm:mt-16 transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <div className="glass-effect rounded-2xl p-6 sm:p-8 max-w-2xl mx-auto">
+            <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-3 sm:mb-4">
               Ready to join our satisfied customers?
             </h3>
-            <p className="text-gray-600 dark:text-gray-300 mb-6">
+            <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 mb-4 sm:mb-6">
               Start your tax filing journey today and experience the difference.
             </p>
-            <button className="btn-primary">
+            <button className="btn-primary text-sm sm:text-base">
               Start Filing Now
             </button>
           </div>

@@ -75,29 +75,29 @@ const Features = () => {
   ]
 
   return (
-    <section className="section-padding bg-white">
+    <section className="section-padding bg-white px-4 sm:px-6 lg:px-8">
       <div className="container-custom">
         {/* Main Heading */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
             4 easy ways to file your tax return
           </h2>
         </div>
 
         {/* Filing Methods Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-16 sm:mb-20">
           {filingMethods.map((method, index) => (
-            <div key={index} className="card p-6 text-center hover:scale-105 transition-transform duration-200">
-              <div className={`inline-flex p-4 rounded-full mb-4 ${
+            <div key={index} className="card p-4 sm:p-6 text-center hover:scale-105 transition-transform duration-200">
+              <div className={`inline-flex p-3 sm:p-4 rounded-full mb-3 sm:mb-4 ${
                 method.color === 'primary' ? 'bg-primary-100 text-primary-600' :
                 method.color === 'secondary' ? 'bg-secondary-100 text-secondary-600' :
                 'bg-success-100 text-success-600'
               }`}>
-                <method.icon className="w-8 h-8" />
+                <method.icon className="w-6 h-6 sm:w-8 sm:h-8" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">{method.title}</h3>
-              <p className="text-gray-600 mb-6 leading-relaxed">{method.description}</p>
-              <button className={`w-full ${
+              <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3">{method.title}</h3>
+              <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6 leading-relaxed">{method.description}</p>
+              <button className={`w-full text-sm sm:text-base ${
                 method.color === 'primary' ? 'btn-primary' :
                 method.color === 'secondary' ? 'btn-secondary' :
                 'btn-outline'
@@ -109,22 +109,22 @@ const Features = () => {
         </div>
 
         {/* Key Features Grid */}
-        <div className="grid lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
           {keyFeatures.map((feature, index) => (
-            <div key={index} className="card p-8">
-              <div className="flex items-start space-x-4">
-                <div className="inline-flex p-3 rounded-full bg-primary-100 text-primary-600 flex-shrink-0">
-                  <feature.icon className="w-6 h-6" />
+            <div key={index} className="card p-6 sm:p-8">
+              <div className="flex flex-col sm:flex-row sm:items-start space-y-4 sm:space-y-0 sm:space-x-4">
+                <div className="inline-flex p-3 rounded-full bg-primary-100 text-primary-600 flex-shrink-0 self-start sm:self-auto">
+                  <feature.icon className="w-5 h-5 sm:w-6 sm:h-6" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">{feature.title}</h3>
-                  <p className="text-gray-600 mb-4 leading-relaxed">{feature.description}</p>
+                  <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3">{feature.title}</h3>
+                  <p className="text-sm sm:text-base text-gray-600 mb-4 leading-relaxed">{feature.description}</p>
                   <div className="flex flex-col sm:flex-row gap-3">
-                    <button className="btn-primary">
+                    <button className="btn-primary text-sm sm:text-base">
                       {feature.buttonText}
                     </button>
                     {feature.secondaryButton && (
-                      <button className="btn-outline">
+                      <button className="btn-outline text-sm sm:text-base">
                         {feature.secondaryButton}
                       </button>
                     )}
