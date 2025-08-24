@@ -179,7 +179,7 @@ const Hero = () => {
                         <div className={`space-y-6 sm:space-y-8 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
 
                             {/* Main Heading */}
-                            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white leading-tight relative z-20 mt-16 sm:mt-20 px-4 sm:px-2">
+                            <h1 className="text-5xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white leading-tight relative z-20 mt-20 sm:mt-20 px-4 sm:px-2">
                                 Fill, File and
                                 <span className="text-gradient ml-2 sm:ml-4 animate-pulse block sm:inline">Smile</span>
                             </h1>
@@ -189,7 +189,7 @@ const Hero = () => {
                                 <div className="text-center">
                                     <span
                                         ref={textRef}
-                                        className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-blue-600 dark:text-blue-400"
+                                        className="text-2xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-blue-600 dark:text-blue-400"
                                     >
                                         {texts[currentTextIndex].substring(0, currentCharIndex)}
                                         <span className="inline-block w-1 h-6 sm:h-8 bg-blue-600 dark:bg-blue-400 ml-1 animate-pulse"></span>
@@ -205,13 +205,13 @@ const Hero = () => {
                         </div>
 
                         {/* Features */}
-                        <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 max-w-4xl mx-auto px-4 sm:px-0 transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                        <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 max-w-4xl  px-4 sm:px-0 transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
                             {features.map((feature, index) => {
                                 const IconComponent = feature.icon
                                 return (
                                     <div 
                                         key={index}
-                                        className="glass-effect rounded-2xl p-4 sm:p-6 text-center group hover:scale-105 transition-all duration-300 hover:animate-glow"
+                                        className="glass-effect rounded-2xl p-4 sm:p-6 mx-1 lg:mx-0 text-center group hover:scale-105 transition-all duration-300 hover:animate-glow"
                                         style={{ transitionDelay: `${index * 200}ms` }}
                                     >
                                         <div className={`inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-gradient-to-r ${feature.color} text-white mb-3 sm:mb-4 group-hover:scale-110 transition-transform duration-300`}>
