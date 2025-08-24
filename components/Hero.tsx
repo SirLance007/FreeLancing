@@ -84,7 +84,7 @@ const Hero = () => {
     ]
 
     return (
-        <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-5 sm:pt-24 lg:pt-20 pb-16 sm:pb-20 lg:pb-24">
+        <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-5 sm:pt-24 lg:pt-20 pb-16 sm:pb-20 lg:pb-24 safe-area-top safe-area-bottom">
             {/* Grid Background */}
             <div className="absolute inset-0 bg-grid-pattern dark:bg-grid-pattern-dark opacity-20 dark:opacity-10"></div>
             
@@ -172,7 +172,7 @@ const Hero = () => {
             <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-white/10 dark:from-gray-900/10 to-transparent"></div>
             <div className="absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-blue-500/5 dark:from-blue-400/5 to-transparent"></div>
 
-            <div className="container-custom relative z-30">
+            <div className="container-custom relative z-30 mobile-optimized">
                 <div className="text-center max-w-6xl mx-auto">
                     <div className="space-y-8 sm:space-y-12">
                         {/* Main Content */}
