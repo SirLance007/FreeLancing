@@ -92,11 +92,10 @@ const Pricing = () => {
             return (
               <div
                 key={index}
-                className={`relative transition-all duration-700 ${
-                  isVisible 
-                    ? 'opacity-100 translate-y-0' 
+                className={`relative transition-all duration-700 ${isVisible
+                    ? 'opacity-100 translate-y-0'
                     : 'opacity-0 translate-y-20'
-                }`}
+                  }`}
                 style={{ transitionDelay: `${index * 200}ms` }}
                 onMouseEnter={() => setHoveredCard(index)}
                 onMouseLeave={() => setHoveredCard(null)}
@@ -105,8 +104,8 @@ const Pricing = () => {
                 {/* Card */}
                 <div className={`
                   relative h-full p-6 sm:p-8 rounded-2xl transition-all duration-300 group
-                  ${plan.popular 
-                    ? 'bg-white dark:bg-gray-800 shadow-2xl scale-105 border-2 border-purple-200 dark:border-purple-700' 
+                  ${plan.popular
+                    ? 'bg-white dark:bg-gray-800 shadow-2xl scale-105 border-2 border-purple-200 dark:border-purple-700'
                     : 'bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm shadow-xl hover:shadow-2xl border border-gray-200 dark:border-gray-700'
                   }
                   ${hoveredCard === index ? 'scale-105 -translate-y-2' : 'scale-100 translate-y-0'}
@@ -139,8 +138,8 @@ const Pricing = () => {
                   {/* Features */}
                   <ul className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
                     {plan.features.map((feature, featureIndex) => (
-                      <li 
-                        key={featureIndex} 
+                      <li
+                        key={featureIndex}
                         className="flex items-start text-gray-700 dark:text-gray-300"
                       >
                         <Check className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
@@ -150,15 +149,16 @@ const Pricing = () => {
                   </ul>
 
                   {/* Button */}
-                  <button className={`
+                  <a href="https://docs.google.com/forms/d/e/1FAIpQLSeK_go2PgDU2nYJJJcwfOKRVw6ydpD8Wr8CPqQv7Ied4cIndQ/viewform?usp=header">
+                    <button className={`
                     w-full py-3 sm:py-4 px-4 sm:px-6 rounded-xl font-semibold text-white transition-all duration-300 transform group-hover:scale-105 text-sm sm:text-base
                     bg-gradient-to-r ${plan.gradient} hover:shadow-lg hover:shadow-purple-500/25
                     ${plan.buttonText === 'Download Now' ? 'bg-gradient-to-r from-green-500 to-emerald-500' : ''}
                   `}>
-                    {plan.buttonText === 'Download Now' && <Download className="w-4 h-4 mr-2 inline" />}
-                    {plan.buttonText}
-                  </button>
-
+                      {plan.buttonText === 'Download Now' && <Download className="w-4 h-4 mr-2 inline" />}
+                      {plan.buttonText}
+                    </button>
+                  </a>
                   {/* Notes */}
                   <div className="mt-4 sm:mt-6 text-center">
                     <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 mb-2">{plan.note}</p>

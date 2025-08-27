@@ -7,7 +7,7 @@ const Hero = () => {
     const [currentTextIndex, setCurrentTextIndex] = useState(0)
     const [currentCharIndex, setCurrentCharIndex] = useState(0)
     const [isDeleting, setIsDeleting] = useState(false)
-    const [isVisible, setIsVisible] = useState(false)
+    const [isVisible, setIsVisible] = useState(true)
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
     const textRef = useRef<HTMLSpanElement>(null)
     const [textWidth, setTextWidth] = useState(0)
@@ -29,7 +29,8 @@ const Hero = () => {
             { threshold: 0.1 }
         )
 
-        const element = document.getElementById('hero')
+        // Use a ref to the current component instead of getElementById
+        const element = textRef.current?.closest('section')
         if (element) {
             observer.observe(element)
         }
@@ -84,7 +85,7 @@ const Hero = () => {
     ]
 
     return (
-        <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-5 sm:pt-24 lg:pt-20 pb-16 sm:pb-20 lg:pb-24 safe-area-top safe-area-bottom">
+        <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 sm:pt-24 lg:pt-20 pb-16 sm:pb-20 lg:pb-24 safe-area-top safe-area-bottom">
             {/* Grid Background */}
             <div className="absolute inset-0 bg-grid-pattern dark:bg-grid-pattern-dark opacity-20 dark:opacity-10"></div>
             
@@ -176,10 +177,10 @@ const Hero = () => {
                 <div className="text-center max-w-6xl mx-auto">
                     <div className="space-y-8 sm:space-y-12">
                         {/* Main Content */}
-                        <div className={`space-y-6 sm:space-y-8 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                        <div className="space-y-6 sm:space-y-8">
 
                             {/* Main Heading */}
-                            <h1 className="text-5xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white leading-tight relative z-20 mt-20 sm:mt-20 px-4 sm:px-2">
+                            <h1 className="text-5xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white leading-tight relative z-20 px-4 sm:px-2">
                                 Fill, File and
                                 <span className="text-gradient ml-2 sm:ml-4 animate-pulse block sm:inline">Smile</span>
                             </h1>
@@ -205,7 +206,7 @@ const Hero = () => {
                         </div>
 
                         {/* Features */}
-                        <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 max-w-4xl  px-4 sm:px-0 transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 max-w-4xl px-4 sm:px-0">
                             {features.map((feature, index) => {
                                 const IconComponent = feature.icon
                                 return (
@@ -224,11 +225,13 @@ const Hero = () => {
                         </div>
 
                         {/* CTA Buttons */}
-                        <div className={`flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center transition-all duration-1000 delay-500 px-4 sm:px-0 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-                            <button className="group bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-4 sm:py-4 px-8 sm:px-8 rounded-xl sm:rounded-2xl transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/25 flex items-center justify-center gap-3 animate-glow w-full sm:w-auto text-base sm:text-base shadow-lg">
-                                Start Filing Now
-                                <ArrowRight className="w-5 h-5 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform duration-200" />
-                            </button>
+                        <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center px-4 sm:px-0">
+                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeK_go2PgDU2nYJJJcwfOKRVw6ydpD8Wr8CPqQv7Ied4cIndQ/viewform?usp=header">
+                                <button className="group bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-4 sm:py-4 px-8 sm:px-8 rounded-xl sm:rounded-2xl transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/25 flex items-center justify-center gap-3 animate-glow w-full sm:w-auto text-base sm:text-base shadow-lg">
+                                    Start Filing Now
+                                    <ArrowRight className="w-5 h-5 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform duration-200" />
+                                </button>
+                            </a>
                             <button className="group bg-white dark:bg-gray-800 text-gray-900 dark:text-white font-semibold py-4 sm:py-4 px-8 sm:px-8 rounded-xl sm:rounded-2xl border-2 border-gray-200 dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-3 w-full sm:w-auto text-base sm:text-base shadow-lg hover:shadow-xl">
                                 <Play className="w-5 h-5 sm:w-5 sm:h-5" />
                                 Watch Demo
@@ -236,7 +239,7 @@ const Hero = () => {
                         </div>
 
                         {/* Rating Section */}
-                        <div className={`flex flex-col items-center justify-center space-y-3 sm:space-y-4 transition-all duration-1000 delay-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                        <div className="flex flex-col items-center justify-center space-y-3 sm:space-y-4">
                             <div className="flex items-center space-x-1">
                                 {[...Array(5)].map((_, i) => (
                                     <Star key={i} className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-400 fill-current animate-pulse" style={{ animationDelay: `${i * 0.1}s` }} />
@@ -249,7 +252,7 @@ const Hero = () => {
                         </div>
 
                         {/* Trust Indicators */}
-                        <div className={`grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 max-w-4xl mx-auto px-4 sm:px-0 transition-all duration-1000 delay-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 max-w-4xl mx-auto px-4 sm:px-0">
                             {[
                                 { number: "2M+", label: "Users" },
                                 { number: "₹500Cr+", label: "Refunds" },

@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import { Menu, X, User, HelpCircle, CheckCircle, ChevronDown, Sparkles } from 'lucide-react'
 import ThemeToggle from './ThemeToggle'
 import Image from 'next/image'
+import { scrollToSection } from './utils/smoothScroll'
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -18,11 +19,10 @@ const Header = () => {
   }, [])
 
   const navigation = [
-    { name: 'Home', href: '#home' },
-    { name: 'Services', href: '#services' },
+    { name: 'Home', href: '#hero' },
     { name: 'Pricing', href: '#pricing' },
-    { name: 'About', href: '#about' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'About', href: '#testimonials' },
+    { name: 'Contact', href: '#faq' },
   ]
 
   return (
@@ -67,15 +67,15 @@ const Header = () => {
           {/* Enhanced Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-6 sm:space-x-8">
             {navigation.map((item) => (
-              <a
+              <button
                 key={item.name}
-                href={item.href}
-                className="relative group text-gray-700 dark:text-gray-300 font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 text-sm sm:text-base"
+                onClick={() => scrollToSection(item.href.replace('#', ''))}
+                className="relative group text-gray-700 dark:text-gray-300 font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 text-sm sm:text-base cursor-pointer"
               >
                 {item.name}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-600 group-hover:w-full transition-all duration-300"></span>
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-500 to-pink-500 group-hover:w-full transition-all duration-300 delay-75"></span>
-              </a>
+              </button>
             ))}
           </nav>
 
@@ -109,14 +109,16 @@ const Header = () => {
           <div className="lg:hidden py-4 sm:py-6 border-t border-gray-200 dark:border-gray-700 bg-white/95 dark:bg-gray-900/95 backdrop-blur-lg rounded-b-2xl shadow-xl">
             <nav className="space-y-2 sm:space-y-4">
               {navigation.map((item) => (
-                <a
+                <button
                   key={item.name}
-                  href={item.href}
-                  className="block text-gray-700 dark:text-gray-300 font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-200 hover:bg-gray-50 dark:hover:bg-gray-800 px-4 py-2 sm:py-3 rounded-lg text-sm sm:text-base"
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={() => {
+                    scrollToSection(item.href.replace('#', ''))
+                    setIsMenuOpen(false)
+                  }}
+                  className="block w-full text-left text-gray-700 dark:text-gray-300 font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-200 hover:bg-gray-50 dark:hover:bg-gray-800 px-4 py-2 sm:py-3 rounded-lg text-sm sm:text-base cursor-pointer"
                 >
                   {item.name}
-                </a>
+                </button>
               ))}
               <button className="w-full mt-4 sm:mt-6 px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-xl shadow-lg transition-all duration-200 transform hover:scale-105 text-sm sm:text-base">
                 Get Started

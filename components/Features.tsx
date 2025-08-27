@@ -75,7 +75,7 @@ const Features = () => {
   ]
 
   return (
-    <section className="section-padding bg-white px-4 sm:px-6 lg:px-8">
+    <section id="services" className="section-padding bg-white px-4 sm:px-6 lg:px-8">
       <div className="container-custom">
         {/* Main Heading */}
         <div className="text-center mb-12 sm:mb-16">
