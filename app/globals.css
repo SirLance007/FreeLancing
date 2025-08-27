@@ -72,6 +72,13 @@
       padding: 1rem;
     }
   }
+
+  /* Mobile header overlap fix */
+  @media (max-width: 640px) {
+    .hero-mobile-safe {
+      padding-top: 6rem !important; /* 96px - ensures content is below mobile header */
+    }
+  }
 }
 
 @layer components {

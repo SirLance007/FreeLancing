@@ -85,7 +85,7 @@ const Hero = () => {
     ]
 
     return (
-        <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 sm:pt-24 lg:pt-20 pb-16 sm:pb-20 lg:pb-24 safe-area-top safe-area-bottom">
+        <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-32 sm:pt-36 lg:pt-40 pb-16 sm:pb-20 lg:pb-24 safe-area-top safe-area-bottom hero-mobile-safe">
             {/* Grid Background */}
             <div className="absolute inset-0 bg-grid-pattern dark:bg-grid-pattern-dark opacity-20 dark:opacity-10"></div>
             
@@ -175,14 +175,14 @@ const Hero = () => {
 
             <div className="container-custom relative z-30 mobile-optimized">
                 <div className="text-center max-w-6xl mx-auto">
-                    <div className="space-y-8 sm:space-y-12">
+                    <div className="space-y-6 sm:space-y-8 md:space-y-12 pt-8 sm:pt-0">
                         {/* Main Content */}
-                        <div className="space-y-6 sm:space-y-8">
+                        <div className="space-y-4 sm:space-y-6 md:space-y-8">
 
                             {/* Main Heading */}
-                            <h1 className="text-5xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white leading-tight relative z-20 px-4 sm:px-2">
+                            <h1 className="text-5xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 dark:text-white leading-tight relative z-20 px-4 sm:px-6 md:px-8">
                                 Fill, File and
-                                <span className="text-gradient ml-2 sm:ml-4 animate-pulse block sm:inline">Smile</span>
+                                <span className="text-gradient ml-1 sm:ml-2 md:ml-4 animate-pulse block sm:inline">Smile</span>
                             </h1>
 
                             {/* Animated Subheading */}
@@ -190,16 +190,16 @@ const Hero = () => {
                                 <div className="text-center">
                                     <span
                                         ref={textRef}
-                                        className="text-2xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-blue-600 dark:text-blue-400"
+                                        className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-semibold text-blue-600 dark:text-blue-400"
                                     >
                                         {texts[currentTextIndex].substring(0, currentCharIndex)}
-                                        <span className="inline-block w-1 h-6 sm:h-8 bg-blue-600 dark:bg-blue-400 ml-1 animate-pulse"></span>
+                                        <span className="inline-block w-1 h-4 sm:h-6 md:h-8 bg-blue-600 dark:text-blue-400 ml-1 animate-pulse"></span>
                                     </span>
                                 </div>
                             </div>
 
                             {/* Description */}
-                            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed px-6 sm:px-4">
+                            <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed px-4 sm:px-6 md:px-8">
                                 Experience the easiest way to file your income tax returns. 
                                 Get maximum refunds with our AI-powered platform.
                             </p>
